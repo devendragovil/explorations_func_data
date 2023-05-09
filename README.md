@@ -1,6 +1,6 @@
 # Explorations: Functional Analysis on iNaturalist Data
 
-By: Devendra Govil
+By: Devendra Govil   
 Advisor: Cody Carroll
 
 ## Aim
