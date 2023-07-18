@@ -1,0 +1,64 @@
+
+## map bird names to bird species codes for eBird
+
+import requests
+
+# Set up the API endpoint URL
+url = "https://api.ebird.org/v2/ref/taxonomy/ebird"
+
+# Set up the request parameters
+params = {
+    "key": "YOUR_API_KEY_HERE" # Replace with your own API key
+}
+
+# Make the API request
+response = requests.get(url, params=params)
+
+# Check if the request was successful
+if response.status_code == 200:
+    # Convert the response from JSON to a Python dictionary
+    data = response.json()
+    
+    # Construct a dictionary that maps each species code to its scientific name
+    species_dict = {}
+    for species in data:
+        species_dict[species["code"]] = species["sciName"]
+    
+    # Print the dictionary
+    print(species_dict)
+else:
+    print("Error:", response.status_code)
+
+
+## API Call Specific Settings
+
+
+# Set up the API endpoint URL
+url = "https://api.ebird.org/v2/data/obs/"
+
+# Set up the request parameters
+params = {
+    "key": "YOUR_API_KEY_HERE", # Replace with your own API key
+    "lat": "40.7128", # Replace with the latitude of the location you're interested in
+    "lng": "-74.0060", # Replace with the longitude of the location you're interested in
+    "dist": "10", # Replace with the radius of the search area in kilometers
+    "back": "10", # Replace with the number of days back from today's date to search for observations
+    "species": ["norcar", "woothr"], # Replace with the species codes you're interested in (in a list)
+    "earliest": "2023-05-01", # Replace with the earliest date you're interested in (in YYYY-MM-DD format)
+    "latest": "2023-05-03" # Replace with the latest date you're interested in (in YYYY-MM-DD format)
+    "bbox": "-74.2591,40.4774,-73.7002,40.9176" # Replace with the bounding box you're interested in (in W,S,E,N format)
+}
+
+# Make the API request
+response = requests.get(url, params=params)
+
+# Check if the request was successful
+if response.status_code == 200:
+    # Convert the response from JSON to a Python dictionary
+    data = response.json()
+    
+    # Print the scientific name and common name of each bird observation
+    for observation in data:
+        print(observation["sciName"], "-", observation["comName"])
+else:
+    print("Error:", response.status_code)
