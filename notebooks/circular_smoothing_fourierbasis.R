@@ -19,6 +19,11 @@ ebird = ebird[,-(5:6)]
 head(ebird)
 
 
+#split df by avibaseid, save into a list of dfs
+ebird_df_list = dlply(.data = ebird, 
+                      .variables = 'AVIBASEID',
+                      .fun = function(x){return(x)})
+
 #reshape iNat data
 head(inat)
 colnames(inat) = c("X","AVIBASEID", 1:52)
@@ -160,5 +165,5 @@ iplot_circ = ggplot(inat_long_smooth) +
 iplot_circ
 
 
-write.csv(inat_long_smooth, file = "inat_dens_df.csv")
-write.csv(ebird_long_smooth, file = "ebird_dens_df.csv")
+write.csv(inat_long_smooth, file = "./inat_dens_df.csv")
+write.csv(ebird_long_smooth, file = "./ebird_dens_df.csv")
