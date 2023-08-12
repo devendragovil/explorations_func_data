@@ -1,5 +1,12 @@
 # Meeting Notes
 
+## Date: July 20th, 2023
+1. eBird data only <= x OBS COUNT (x 10..)
+2. Drop ebird OBS COUNT missing
+3. Try species name as the UID
+4. Look at outlier birds, investigate ( < 1 and > 1000 and ~ 1)
+
+
 ## Date: July 8, 2023
 
 1. Summary statistics between iNat and ebird
