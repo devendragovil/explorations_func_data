@@ -1,5 +1,9 @@
 # Meeting Notes
 
+
+1. We can use GBIF, not yet though.
+2. 
+
 ## Date: July 20th, 2023
 1. eBird data only <= x OBS COUNT (x 10..)
 2. Drop ebird OBS COUNT missing
