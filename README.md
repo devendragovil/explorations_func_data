@@ -2,7 +2,6 @@
 
 By:
 - Devendra Govil
-- Rushil Manglik
    
 Advisor: Cody Carroll
 
